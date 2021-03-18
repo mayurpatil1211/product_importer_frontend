@@ -68,7 +68,7 @@ angular.module('ProductApp')
 		    event.preventDefault();
 		}
 
-		$rootScope.BaseURL = 'http://127.0.0.1:8000/'
+		
 		$scope.login_success = false
 		$scope.login_error_status = false
 
