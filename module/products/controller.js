@@ -20,6 +20,7 @@ angular.module('ProductApp')
 .controller('productListController', [ '$rootScope', '$scope', '$http', '$location', '$window', '$cookies',
 
 	function($rootScope, $scope, $http, $location, $window, $cookies){
+		$rootScope.BaseURL = 'http://40.71.174.133:8000/'
 
         $scope.result_form = false
         $scope.loading = false
