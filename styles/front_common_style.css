@@ -1,0 +1,15 @@
+.start_main{width: 100%;}
+.imei_group{width: 100%; padding: 0px;}
+.one_stup{width: 40.34%;float: left; padding: 0 8px 0 0;}
+.two_stup{width: 33.33%;float: left;}
+.one_right_stup{width: 25.33%; float: right;}
+.clear_x{clear: both;padding: 5px;width: 100%;}
+.error{color:#FF0000;}
+
+
+@media only screen and (max-width: 500px) {
+.one_stup {  float: left; margin-bottom: 14px;  padding: 0; width: 100%;}
+.two_stup {  float: left;  width: 100%; margin-bottom: 14px;}
+.one_right_stup {    float: right;    width: 100%; margin-bottom: 14px;}
+	
+}

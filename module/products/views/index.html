@@ -1,0 +1,159 @@
+<div class="container-fluid" style="overflow-x: hidden !important;">
+   <div class="col-md-12" style="padding: 0 0px 18px 0px;">
+    <div class="col-md-4">
+      <form class="form-inline">
+     <div class="form-group">
+         <input type="text" ng-model="search" class="form-control" placeholder="Search">
+         <button ng-show="search" style="    background: #1280e2;
+         border: none;
+         padding: 6px 20px;
+         border-radius: 20px;
+         color: #fff;
+         margin-left: 10px;
+         font-size: 0.85em;
+         outline: none;" ng-click="get_product_list()">Search</button>
+         <span ng-show="search" ng-click="search = '';currentPage=1;get_product_list()" style="    color: #b71313;
+         font-size: 0.8em;
+         cursor: pointer;
+         margin-left: 10px;
+         border: 1px solid;
+         padding: 5px 20px 6px 20px;
+         border-radius: 18px;
+         background: #ff0c0c0a;">(x) Reset Search Only</span>
+     </div>
+   </form>
+  </div>
+
+  <div class="col-md-4">
+    
+  </div>
+
+
+  <div class="col-md-4 text-right">
+    <button style="cursor: default;" data-toggle="modal" data-target="#productFileUploadModal" style="" class="btn-sm btn-primary">Upload File</button>
+  </div>
+    
+
+   
+   </div>
+
+
+   <div class="text-center">
+     <ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" max-size="maxSize" force-ellipses="true" ng-change="pageChanged()" num-pages="num_pages" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+   </div>
+   
+
+   <table id="example" class="table table-striped table-bordered" style="width:100%;margin: auto;">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>SKU</th>
+                <th>DESCRIPTION</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr dir-paginate="product in products|orderBy:sortKey:reverse|itemsPerPage:1000">
+                <td>{{product.name}}</td>
+                <td>{{product.sku}}</td>
+                <td>{{product.description}}</td>
+                
+                 <td>
+                    <button style="cursor: default;" ng-click="update_product_modal(product)" data-toggle="modal" data-target="#productUpdateModal" style="" class="btn-sm btn-primary">Update Product</button>
+                </td>
+                
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <div class="text-center">
+      <!-- <ul uib-pagination boundary-links="true" total-items="totalItems"  ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" max-size="maxSize" force-ellipses="true" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul> -->
+
+      <ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" max-size="maxSize" force-ellipses="true" ng-change="pageChanged()" num-pages="num_pages" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="productFileUploadModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Upload New File</h4>
+      </div>
+
+
+      <div class="modal-body">
+          <form role="form" name="productFileUploadForm" ng-submit="upload_file();">
+            <div class="form-group">
+               <input class="form-control required" name="file" id="file" type="file" placeholder="" file-model = "myFile"/>
+             </div>
+
+            <button type="submit" class="btn btn-default btn-primary" ng-disabled="productFileUploadForm.$invalid">Submit</button>
+          </form>  
+      </div>
+
+      <div class="modal-footer" ng-show="product_update_footer">
+            <p class="text-success" ng-show="product_update_success">Product Updated Successfully</p>
+            <p class="text-danger" ng-show="product_update_failed">Failed to update Product</p> 
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<div id="productUpdateModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update Product</h4>
+      </div>
+
+
+      <div class="modal-body">
+          <form role="form" name="productUpdateForm" ng-submit="update_product();">
+            <input type="hidden" name="id" ng-model="id" value="{{id}}">
+            <input type="hidden" name="sku" ng-model="sku" value="{{sku}}">
+            
+            <div class="form-group">
+                <input type="text" class="form-control" name="name" id="exampleInputpassword1" ng-model="name" placeholder="" value="{{name}}" autocomplete="off" required autofocus />
+                <span class="text-danger" ng-show="productUpdateForm.name.$invalid && productUpdateForm.name.$dirty" >Name Required</span>
+            </div>
+
+            <div class="form-group">
+                <textarea type="text" class="form-control" name="description" id="description" ng-model="description" placeholder="Enter Subscription ID" value="" autocomplete="off" required autofocus >
+                </textarea>
+                <span class="text-danger" ng-show="productUpdateForm.description.$invalid && productUpdateForm.description.$dirty" >Description Required</span>
+            </div>
+
+            <button type="submit" class="btn btn-default btn-primary" ng-disabled="productUpdateForm.$invalid">Submit</button>
+          </form>  
+      </div>
+
+      <div class="modal-footer" ng-show="product_update_footer">
+            <p class="text-success" ng-show="product_update_success">Product Updated Successfully</p>
+            <p class="text-danger" ng-show="product_update_failed">Failed to update Product</p> 
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,249 @@
+
+.dropdown-menu{
+	left: -91% !important;
+        margin: 9px -21px 0 -55px !important;
+}
+
+
+.nav_drop{
+	left: -20% !important;
+}
+
+.links{
+	    font-size: 15px;
+    font-weight: bold;
+        cursor: default;
+}
+
+.dropdown_button{
+	background: #0d80e2;
+    color: #fff;
+    padding: 6px 16px 6px 16px;
+    border-radius: 4px;
+}
+
+.dropdown_button:hover, .dropdown_button:focus{
+	    color: #fff !important;
+    text-decoration: none !important;
+}
+
+
+@media only screen and (max-width: 767px) and (min-width: 480px) .btn-primary, .btn-default {
+    width: 52%;
+}
+
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
+
+@media (min-width: 768px){
+.navbar {
+    border-radius: 0px;
+}
+}
+
+.container-fluid::-webkit-scrollbar { 
+                display: none; 
+} 
+
+
+.modal-body .form-horizontal .col-sm-2,
+.modal-body .form-horizontal .col-sm-10 {
+    width: 100%
+}
+
+.modal-body .form-horizontal .control-label {
+    text-align: left;
+}
+.modal-body .form-horizontal .col-sm-offset-2 {
+    margin-left: 15px;
+}
+
+/*body{
+  background-color:#96ceb4;
+    padding-top:40px;
+  padding-left:20px;
+  padding-right:20px;
+}
+*/
+h2{
+  color:#ff6f69;
+}
+
+#panel1{
+    color:#222;
+    background-color:#099ff7;
+    padding:10px;
+    color:#fff;
+    padding-left:20px;
+    border:0;
+    min-height: 378px;
+}
+
+.panel.panel-default:hover {
+    -webkit-animation: pulse 1s;
+    animation: pulse 1s;
+}
+
+.card_head{
+        margin-top: 0px;
+}
+
+.device_count{
+        font-size: 30px;
+    font-weight: bold;
+    text-align: justify;
+}
+
+.device_message {
+    font-size: 16px;
+    font-style: italic;
+}
+
+.panel-footer {
+    padding: 11px 0px;
+    background-color: #079ff7;
+    border-top: 1px solid #000;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.td_width{
+    min-width: 95px;
+}
+
+.h2-style{
+    border: 1px solid #fff;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 50px;
+    background: #13c1ca;
+    color: #fff;
+}
+
+.card-title{
+    font-size: 25px;
+}
+
+.row {
+    margin-top: 23px;
+}
+
+.main_card{
+    border: 1px solid #0a77b7;
+    padding-top: 12px;
+    /*padding-bottom: 12px;*/
+}
+
+.card-footer{
+    background-color: #ddd;
+    padding-bottom: 20px;
+}
+
+.navbar-inverse {
+    background-color: #337ab6;
+    border-color: #337ab6;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #ffffff;
+}
+
+.btn:hover, .btn:focus, .btn.focus {
+    color: #fff !important;
+    text-decoration: none;
+}
+
+
+.btn {
+    padding: 7px 5px !important;
+    font-size: 11px !important;
+    }
+
+.p_text{
+        font-size: 22px;
+    font-weight: 400;
+    color: #5e0e0e;
+}
+
+
+
+.td_width{
+    min-width: 95px;
+}
+
+.border_right{
+    border-right: 1px solid #9d9d9d;
+    padding-right: 14px;
+}
+
+.del_button{
+
+    display: inline-block;
+    margin-bottom: 0;
+    /* margin-left: 5px; */
+    /* margin-top: 20px; */
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 5px 15px;
+    /* font-size: 16px; */
+    font-weight: 500;
+    line-height: 1.42857143;
+    border-radius: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+.ta-editor {
+  min-height: 300px;
+  height: auto;
+  overflow: auto;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+#textAngular-editableFix-010203040506070809{
+    display: none;
+}
+
+.btn-lg {
+    padding: 8px 28px !important;
+    font-size: 19px !important;
+    line-height: 1.3333333 !important;
+    border-radius: 0 !important;
+    font-weight: bold !important;
+    margin-top: 0 !important;
+}
+
+.food-card{
+    padding-right: 50px;
+    padding-left: 50px;
+        margin-top: 16px;
+}
+
+.card{
+        border: 1px solid #ddd;
+    padding: 5px;
+}
