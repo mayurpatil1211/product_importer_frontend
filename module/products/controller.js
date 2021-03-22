@@ -20,7 +20,8 @@ angular.module('ProductApp')
 .controller('productListController', [ '$rootScope', '$scope', '$http', '$location', '$window', '$cookies',
 
 	function($rootScope, $scope, $http, $location, $window, $cookies){
-		$rootScope.BaseURL = 'https://pmayur.eastus.cloudapp.azure.com/'
+		// $rootScope.BaseURL = 'https://pmayur.eastus.cloudapp.azure.com/'
+		$rootScope.BaseURL = 'http://127.0.0.1:8000/'
 
         $scope.result_form = false
         $scope.loading = false
@@ -34,14 +35,45 @@ angular.module('ProductApp')
 		var formdata = new FormData();
         $scope.getTheFiles = function ($files) {
             angular.forEach($files, function (value, key) {
-            	console.log(key, value)
                 formdata.append(key, value);
             });
-            console.log(formdata)
         };
 		
+		
+        $scope.delete_records = function(){
+			
+			$http.delete($rootScope.BaseURL+"api/product")
+			.then(function success(response){
+				
+				alert(response.data.message)
+			},
+			function error(error){
+				alert(error.data.message)
+			})
+		}
+
+		$scope.add_product = function(){
+			$http.post($rootScope.BaseURL+"api/product", $scope.productAddFormData)
+			.then(function success(response){
+				$scope.product_add_footer = true
+				if(response.data.status==true){
+					$scope.product_add_success = response.data.status
+					$scope.product_add_failed = false
+					$scope.new_subscription_id = ""
+					$scope.get_product_list();
+				}else{
+					$scope.product_add_success = false
+					$scope.product_add_failed = true
+				}
+			},
+			function error(error){
+				$scope.product_add_success = false
+				$scope.product_add_footer = true
+				$scope.product_add_failed = true
+			})
+		}
+
 		$scope.upload_file = function(){
-			console.dir($scope.myFile)
 			var file = $scope.myFile;
 			var fd = new FormData();
 			fd.append('file', file);
@@ -77,7 +109,6 @@ angular.module('ProductApp')
 			$scope.loading = true;
 			$http.get($rootScope.BaseURL+"api/product?page=" + $scope.currentPage + "&query=" + ($scope.search ? $scope.search : ''))
 			.then(function success(response){
-				console.log(response)
 				$scope.loading = false;
 				$scope.products = response.data.products
 				$scope.products_length = $scope.products.length
@@ -89,7 +120,6 @@ angular.module('ProductApp')
 
 			function error(error){
 				$scope.loading = false;
-				console.log(error)
 			})
 		}
 		
