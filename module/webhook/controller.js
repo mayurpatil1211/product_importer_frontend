@@ -4,7 +4,7 @@ angular.module('ProductApp')
 .controller('webhookController', [ '$rootScope', '$scope', '$http', '$location', '$window', '$cookies',
 	function($rootScope, $scope, $http, $location, $window, $cookies){
 
-		$rootScope.BaseURL = 'http://13.82.149.213:8000/'
+		$rootScope.BaseURL = 'https://pmayur.eastus.cloudapp.azure.com/'
 
 
 		$scope.result_form = false
