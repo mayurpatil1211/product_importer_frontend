@@ -20,8 +20,8 @@ angular.module('ProductApp')
 .controller('productListController', [ '$rootScope', '$scope', '$http', '$location', '$window', '$cookies',
 
 	function($rootScope, $scope, $http, $location, $window, $cookies){
-		// $rootScope.BaseURL = 'https://pmayur.eastus.cloudapp.azure.com/'
-		$rootScope.BaseURL = 'http://127.0.0.1:8000/'
+		$rootScope.BaseURL = 'https://pmayur.eastus.cloudapp.azure.com/'
+		// $rootScope.BaseURL = 'http://127.0.0.1:8000/'
 
         $scope.result_form = false
         $scope.loading = false
